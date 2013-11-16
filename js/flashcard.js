@@ -60,13 +60,14 @@ $(document).ready(function(){
 	// and increments cardCount and then calls getACard with
 	// the incremented value, to return the next card in the set
 	$("#next").click(function(){
-		if (cardCount < localStorage.length-2){
+		if (cardCount < localStorage.length-1){
 			$("#next_card").html($("#flippy_card").text())
 						   .css("z-index", "2");
 			verso_word = getACard(++cardCount);
-			$("#next_card").animate({left: '300px'})
-						   .css("z-index","0")
-						   .animate({left: '10'});
+			$("#next_card").animate({left: '300px'}, function(){
+				$("#next_card").css("z-index","0")
+							   .animate({left: '15'});
+			});
 		}
 	});
 
@@ -82,7 +83,7 @@ $(document).ready(function(){
 			$("#next_card").html(localStorage.key(cardCount-1))
 						   .animate({left: '-300px'}, function(){
 								$("#next_card").css("z-index", "2") 
-						   					   .animate({left: '10px'}, function(){
+						   					   .animate({left: '15px'}, function(){
 													verso_word = getACard(--cardCount);
 													$("#next_card").css("z-index", "0");
 						   });

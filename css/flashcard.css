@@ -1,59 +1,62 @@
 .card{
-	font-size: 1em;
-	width: 200px;
-	padding: 100px 20px;
-	max-height: 220px;
-	text-align: center;
-	background-color: #FCFAE6;
-	box-shadow: 3px 3px 3px 1px Gainsboro;
-	margin-top: 10%;
+	font-size:           1em;
+	width:               200px;
+	padding:             100px 20px;
+	max-height:          220px;
+	text-align:          center;
+	background-color:    #FCFAE6;
+	box-shadow:          3px 3px 3px 1px Gainsboro;
+	margin-top:          10%;
 }
 
 .card-container{
-	margin-top: 10%;
-	width: 240px;
-	height: 270px;
-	font-size: 1.5em;
-	background-image: url('/images/cardStack.png');
-	background-repeat: no-repeat;
+	margin-top:          10%;
+	width:               240px;
+	height:              270px;
+	font-size:           1.5em;
+	background-image:    url('/images/cardStack.png');
+	background-repeat:   no-repeat;
 	background-position: 50% 70%;
+	position:            relative;
 }
 
 .farsi{
-	direction: rtl;
+	direction:           rtl;
 }
 
 #flippy_card{
-	position: relative;
-	z-index: 1;
+	position:            absolute;
+	z-index:             1;
 }
 
+
 #new_card{
-	font-size: 1.5em;
-	display: none;
-	position: relative;
-	margin-top: 0px;
-	z-index: 0;
+	font-size:           1.5em;
+	display:             none;
+	position:            relative;
+	margin-top:          0px;
+	z-index:             0;
 }
 
 #next_card{
-	position: absolute;
-	top:      0;
-	left:     10px;
-	z-index:  0;
+	position:            absolute;
+	top:                 -3px;
+	left:                15px;
+	z-index:             0;
 }
 
 button{
-	position: absolute;
-	z-index: 2;
+	position:            absolute;
+	z-index:             2;
 }
 
 #next{
-	top:  255px;
-	left: 120px;
+	top:                 255px;
+	left:                120px;
 }
 
 #last{
-	top:  255px;
-	left: 80px;
+	top:                 255px;
+	left:                80px;
 }
+
