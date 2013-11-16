@@ -7,7 +7,7 @@
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js" type="text/javascript"></script> 
 	<script src="/js/flashcard.js" type="text/javascript"></script> 
-	<script src="/flippy/jquery.flippy.js" type="text/javascript"></script>
+
 	<link rel="stylesheet" type="text/css" href="css/flashcard.css">
 
 	<!-- keyboard courtesy of http://www.greywyvern.com/code/javascript/keyboard --> 
@@ -26,10 +26,13 @@
 		</div>
 		
 		<div class="card-container col-md-3 col-md-offset-3">
-			<div class="card" id="flippy_card">
-				Word
+			<div class='panel hover'>
+				<div class="card front" id="front"></div>
+				<div class="card back" id="back"></div>
 			</div>
+
 			<div class="card" id="next_card"></div>
+
 			<button class='btn btn-primary' id='last'><-</button>
 			<button class='btn btn-primary' id='next'>-></button>
 		</div>

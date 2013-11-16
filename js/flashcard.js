@@ -1,11 +1,13 @@
 var cardCount = 0;
 
 $(document).ready(function(){
+
+	localStorage.clear();
 	// Check to see if the user has any cards in localStorage.
 	// If not, add some. 
 	if (localStorage.length == 0){
 		localStorage.setItem("Produce", "محصول");
-		localStorage.setItem("Oil", "رروغن");
+		localStorage.setItem("Oil", "روغن");
 		localStorage.setItem("Herd", "گله");
 		localStorage.setItem("Pitcher", "کوزه");
 		localStorage.setItem("Ewe", "میش");
@@ -14,26 +16,37 @@ $(document).ready(function(){
 	// getACard sets the first flashcard
 	// using .html() to set the English
 	// and the returned value to set the Farsi
-	var verso_word = getACard(cardCount);
+	getACard(cardCount);
 
 	// Ready the flippling 
 	var flipped = false;
 
-	// Flip!
-	$("#flippy_card").click(function(){
-		if (!flipped){
-			$("#flippy_card").flippy({
-				duration: '500',
-				color_target: '#FCFAE6',
-				verso: verso_word
-				});
-		}
-	// Flip back!
-		else {
-			$("#flippy_card").flippyReverse();
-		}
-		flipped = !flipped;		 
-	});
+    $(".hover").click(function(){
+    	if (!flipped){
+    		$(this).addClass("flip");
+    		flipped = !flipped;
+    	} else{
+    		$(this).removeClass("flip")
+    		flipped = !flipped;
+    	}
+        
+    });
+
+	// // Flip!
+	// $("#flippy_card").click(function(){
+	// 	if (!flipped){
+	// 		$("#flippy_card").flippy({
+	// 			duration: '500',
+	// 			color_target: '#FCFAE6',
+	// 			verso: verso_word
+	// 			});
+	// 	}
+	// // Flip back!
+	// 	else {
+	// 		$("#flippy_card").flippyReverse();
+	// 	}
+	// 	flipped = !flipped;		 
+	// });
 
 	// Adding a new card grabs values from form
 	// does some animation and sticks the values
@@ -42,18 +55,21 @@ $(document).ready(function(){
 		var eng_word = $("#english_word").val();
 		var far_word = $("#farsi_word").val();
 
-		$("#new_card").html(eng_word)
-					  .fadeIn("slow")
-					  .animate({
-						  left:'500px',
-						  bottom:'250px'
-						}, 1000)
-					  .fadeOut()
-					  .animate({
-					  	  left:'0px',	
-					  	  bottom: '0px'
-					  });
-		localStorage.setItem(eng_word, far_word);
+		if (eng_word != "" || farsi_word != ""){
+
+			$("#new_card").html(eng_word)
+						  .fadeIn("slow")
+						  .animate({
+							  left:'500px',
+							  bottom:'250px'
+							}, 1000)
+						  .fadeOut()
+						  .animate({
+						  	  left:'0px',	
+						  	  bottom: '0px'
+						  });
+			localStorage.setItem(eng_word, far_word);
+		}
 	});
 
 	// Hitting the next button activates some fancy animation
@@ -61,9 +77,9 @@ $(document).ready(function(){
 	// the incremented value, to return the next card in the set
 	$("#next").click(function(){
 		if (cardCount < localStorage.length-1){
-			$("#next_card").html($("#flippy_card").text())
+			$("#next_card").html($("#front").text())
 						   .css("z-index", "2");
-			verso_word = getACard(++cardCount);
+			getACard(++cardCount);
 			$("#next_card").animate({left: '300px'}, function(){
 				$("#next_card").css("z-index","0")
 							   .animate({left: '15'});
@@ -84,7 +100,7 @@ $(document).ready(function(){
 						   .animate({left: '-300px'}, function(){
 								$("#next_card").css("z-index", "2") 
 						   					   .animate({left: '15px'}, function(){
-													verso_word = getACard(--cardCount);
+													getACard(--cardCount);
 													$("#next_card").css("z-index", "0");
 						   });
 				});
@@ -98,7 +114,7 @@ function getACard(cardCount){
 	// "flippy_card" with one value and return the other.
 	var english_word = localStorage.key(cardCount);
 	var farsi_word = localStorage[english_word];
-	$("#flippy_card").html(english_word);
-	return farsi_word;
+	$("#front").html(english_word);
+	$("#back").html(farsi_word);	
 }
 
