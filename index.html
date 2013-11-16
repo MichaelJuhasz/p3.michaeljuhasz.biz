@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Flash Cards</title>
+	<meta charset='UTF-8'>	
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js" type="text/javascript"></script> 
+	<script src="/js/flashcard.js" type="text/javascript"></script> 
+	<script src="/flippy/jquery.flippy.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="css/flashcard.css">
+
+	<!-- keyboard courtesy of http://www.greywyvern.com/code/javascript/keyboard --> 
+	<script type="text/javascript" src="keyboard/keyboard.js"></script>
+	<link rel="stylesheet" type="text/css" href="keyboard/keyboard.css">
+</head>
+<body class="container">
+	<div class="row">
+		<div class="card col-md-3" id="card_maker">
+			<form action="" method="post" >
+				<input type="text" id="english_word" name="english" placeholder="English...">
+				<input type="text" id="farsi_word" name="farsi" placeholder="فارسی..." class="farsi keyboardInput">
+				<a id="submit_button">Add card</a>
+			</form>
+			<div id="result"></div>
+		</div>
+		
+		<div class="card-container col-md-3 col-md-offset-3">
+			<div class="card" id="flippy_card">
+				Word
+			</div>
+			<div class="card" id="next_card"></div>
+			<button class='btn btn-primary' id='last'><-</button>
+			<button class='btn btn-primary' id='next'>-></button>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="card col-md-3" id="new_card"></div>
+	</div>
+</body>
+</html>
