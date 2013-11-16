@@ -77,8 +77,14 @@ $(document).ready(function(){
 	// the incremented value, to return the next card in the set
 	$("#next").click(function(){
 		if (cardCount < localStorage.length-1){
-			$("#next_card").html($("#front").text())
+			if(!flipped){
+				$("#next_card").html($("#front").text())
 						   .css("z-index", "2");
+			} else {
+				$("#next_card").html($("#back").text())
+						   .css("z-index", "2");
+			}
+			
 			getACard(++cardCount);
 			$("#next_card").animate({left: '300px'}, function(){
 				$("#next_card").css("z-index","0")
@@ -96,12 +102,19 @@ $(document).ready(function(){
 	// make sense.
 	$("#last").click(function(){
 		if(cardCount > 0){
-			$("#next_card").html(localStorage.key(cardCount-1))
-						   .animate({left: '-300px'}, function(){
-								$("#next_card").css("z-index", "2") 
-						   					   .animate({left: '15px'}, function(){
-													getACard(--cardCount);
-													$("#next_card").css("z-index", "0");
+			if(!flipped){
+				$("#next_card").html(localStorage.key(cardCount-1));	
+			} else {
+				$("#next_card").html(localStorage[localStorage.key(cardCount-1)]);
+			}
+			
+			$("#next_card").animate({left: '-300px'},
+				 function(){
+					$("#next_card").css("z-index", "2") 
+						   		   .animate({left: '15px'},
+						function(){
+							getACard(--cardCount);
+							$("#next_card").css("z-index", "0");
 						   });
 				});
 		}

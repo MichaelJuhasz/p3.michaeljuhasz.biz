@@ -35,8 +35,8 @@
 /* -- make sure to declare a default for every property that you want animated -- */
 /* -- general styles, including Y axis rotation -- */
 .panel .front {
+	margin-top: 0;
     position: absolute;
-    top: -10px;
     z-index: 1;
     width: inherit;
     height: inherit;
@@ -60,6 +60,7 @@
     -moz-transform: rotateY(180deg);
 }
 .panel .back {
+	margin-top: 0;
     position: absolute;
     top: 0;
     z-index: 0;
@@ -85,14 +86,6 @@
     -moz-transform: rotateX(0deg) rotateY(0deg);
 }
 
-/*#flippy_card{
-	position:            absolute;
-	z-index:             1;
-}*/
-
-
-
-
 #new_card{
 	font-size:           1.5em;
 	display:             none;
@@ -102,6 +95,7 @@
 }
 
 #next_card{
+	margin-top: 		 0;
 	position:            absolute;
 	top:                 0;
 	left:                15px;
