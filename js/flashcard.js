@@ -79,15 +79,15 @@ $(document).ready(function(){
 		if (cardCount < localStorage.length-1){
 			if(!flipped){
 				$("#next_card").html($("#front").text())
-						   .css("z-index", "2");
+						   .css("z-index", "100");
 			} else {
 				$("#next_card").html($("#back").text())
-						   .css("z-index", "2");
+						   .css("z-index", "100");
 			}
 			
 			getACard(++cardCount);
 			$("#next_card").animate({left: '300px'}, function(){
-				$("#next_card").css("z-index","0")
+				$("#next_card").css("z-index","-1")
 							   .animate({left: '15'});
 			});
 		}
@@ -110,11 +110,11 @@ $(document).ready(function(){
 			
 			$("#next_card").animate({left: '-300px'},
 				 function(){
-					$("#next_card").css("z-index", "2") 
+					$("#next_card").css("z-index", "100") 
 						   		   .animate({left: '15px'},
 						function(){
 							getACard(--cardCount);
-							$("#next_card").css("z-index", "0");
+							$("#next_card").css("z-index", "-1");
 						   });
 				});
 		}
