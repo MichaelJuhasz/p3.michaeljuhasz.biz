@@ -1,3 +1,9 @@
+
+
+.farsi{
+	direction:           rtl;
+}
+
 .card{
 	font-size:           1em;
 	width:               200px;
@@ -18,10 +24,6 @@
 	background-repeat:   no-repeat;
 	background-position: 50% 70%;
 	position:            relative;
-}
-
-.farsi{
-	direction:           rtl;
 }
 
 /*http://simonlockyer.info/flip-div-css3-tutorial/ */

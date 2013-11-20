@@ -11,6 +11,83 @@ $(document).ready(function(){
 		localStorage.setItem("Herd", "گله");
 		localStorage.setItem("Pitcher", "کوزه");
 		localStorage.setItem("Ewe", "میش");
+		localStorage.setItem("Order", "دستور");
+		localStorage.setItem("Body", "تن");
+		localStorage.setItem("Early riser","سحر خیز");
+		localStorage.setItem("Day break","سحر");
+		localStorage.setItem("Palace", "کاخ");
+		localStorage.setItem("To spill/pour","ریختن");
+		localStorage.setItem("To hit","خوردن");
+		localStorage.setItem("Firmly, fast", "محکم");
+		localStorage.setItem("Like this","اینطور");
+		localStorage.setItem("Walking stick","عصا");
+		localStorage.setItem("To recruit, to employ","استخدام کردن");
+		localStorage.setItem("Serving woman","خدمتکار زن");
+		localStorage.setItem("Service","خدمت");
+		localStorage.setItem("Spouse","همسر");
+		localStorage.setItem("Marriage","ازدواج");
+		localStorage.setItem("Suitor","خواستگار");
+		localStorage.setItem("Wealthy","ثروتمند");
+		localStorage.setItem("Wealth","ثروت");
+		localStorage.setItem("To spread, to flatten","پهن کردن");
+		localStorage.setItem("Price","قیمت");
+		localStorage.setItem("Precious","قیمتی");
+		localStorage.setItem("Carpet","فرش ,قالی");
+		localStorage.setItem("To build","ساختن");
+		localStorage.setItem("To plant/grow","کاشتن");
+		localStorage.setItem("Abundant","فراوان");
+		localStorage.setItem("Vast","وسیع");
+		localStorage.setItem("To give birth to","به دنیا اوردن ,زائید");
+		localStorage.setItem("Female","ماده");
+		localStorage.setItem("Male","نر");
+		localStorage.setItem("Unit 1","");
+		localStorage.setItem("Husband","شوهر");
+		localStorage.setItem("Have a good time","خوش گذشتن");
+		localStorage.setItem("To expect","انتظار داشتن");
+		localStorage.setItem("Expectation","انتظار");
+		localStorage.setItem("Beautiful","زیبا");
+		localStorage.setItem("I liked it","از ان خوشم امد");
+		localStorage.setItem("To smell","بو دادن");
+		localStorage.setItem("Dirty","کثیف");
+		localStorage.setItem("Ground/land/earth","زمین");
+		localStorage.setItem("Gas station","پمپ بنزین");
+		localStorage.setItem("Gasoline","بنزین");
+		localStorage.setItem("Fuel","سوخت");
+		localStorage.setItem("To stay","توقف کردن");
+		localStorage.setItem("Clean","تمیز");
+		localStorage.setItem("Glass","لیوان");
+		localStorage.setItem("Among, between","بین ,میان");
+		localStorage.setItem("To listen","گوش دادن");
+		localStorage.setItem("To be careful","دقت کردن");
+		localStorage.setItem("Accuracy","دقت");
+		localStorage.setItem("Quiet","ساکت");
+		localStorage.setItem("Music","موسیقی");
+		localStorage.setItem("Radio","رادیو");
+		localStorage.setItem("To offer","تعارف کردن");
+		localStorage.setItem("Offer/compliment","تعارف");
+		localStorage.setItem("To divide","تقسیم کردن");
+		localStorage.setItem("Box","جعبه");
+		localStorage.setItem("To watch","تماشا کردن");
+		localStorage.setItem("View","منظره");
+		localStorage.setItem("To talk","صحبت کردن");
+		localStorage.setItem("Conversation","صحبت");
+		localStorage.setItem("Magazine","مجله");
+		localStorage.setItem("Newspaper","روزنامه");
+		localStorage.setItem("Some groups","بعض ها");
+		localStorage.setItem("Some of","بعض ان");
+		localStorage.setItem("To move, set off","حرکت کردن");
+		localStorage.setItem("Movement, motion","حرکت");
+		localStorage.setItem("Round trip ticket","بلیط دو سره");
+		localStorage.setItem("Passenger service","مسافربری");
+		localStorage.setItem("Attractive, interesting","جالب");
+		localStorage.setItem("Monument","اثار تاریخی");
+		localStorage.setItem("Phenomena","اثار");
+		localStorage.setItem("Archaeology","باستان شناسی");
+		localStorage.setItem("To survey","بازدید کردن");
+		localStorage.setItem("Return, visit","بازدید");
+		localStorage.setItem("To make an appointment","قرار گذاشتن");
+		localStorage.setItem("Arrangement","قرار");
+		localStorage.setItem("Birthday, birth","تولد");
 	}
 
 	// getACard sets the first flashcard
@@ -78,10 +155,10 @@ $(document).ready(function(){
 	$("#next").click(function(){
 		if (cardCount < localStorage.length-1){
 			if(!flipped){
-				$("#next_card").html($("#front").text())
+				$("#next_card").html($(".front").text())
 						   .css("z-index", "100");
 			} else {
-				$("#next_card").html($("#back").text())
+				$("#next_card").html($(".back").text())
 						   .css("z-index", "100");
 			}
 			
@@ -127,7 +204,7 @@ function getACard(cardCount){
 	// "flippy_card" with one value and return the other.
 	var english_word = localStorage.key(cardCount);
 	var farsi_word = localStorage[english_word];
-	$("#front").html(english_word);
-	$("#back").html(farsi_word);	
+	$(".front").html(english_word);
+	$(".back").html(farsi_word);	
 }
 
