@@ -1,4 +1,6 @@
-
+.back{
+	
+}
 
 .farsi{
 	direction:           rtl;
@@ -119,3 +121,7 @@ button{
 	left:                80px;
 }
 
+#delete{
+	top:                 255px;
+	left:                170px;
+}

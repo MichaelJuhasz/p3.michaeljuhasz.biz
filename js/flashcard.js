@@ -129,15 +129,17 @@ $(document).ready(function(){
 	// does some animation and sticks the values
 	// into localStorage
 	$("#submit_button").click(function(){
+		var med_query = window.matchMedia("(min-width: 992px)");
 		var eng_word = $("#english_word").val();
 		var far_word = $("#farsi_word").val();
 
-		if (eng_word != "" || farsi_word != ""){
+		if (med_query.matches){
+			if (eng_word != "" || farsi_word != ""){
 
 			$("#new_card").html(eng_word)
 						  .fadeIn("slow")
 						  .animate({
-							  left:'500px',
+							  left:'45%',
 							  bottom:'250px'
 							}, 1000)
 						  .fadeOut()
@@ -147,6 +149,8 @@ $(document).ready(function(){
 						  });
 			localStorage.setItem(eng_word, far_word);
 		}
+		}
+
 	});
 
 	// Hitting the next button activates some fancy animation
@@ -195,6 +199,11 @@ $(document).ready(function(){
 						   });
 				});
 		}
+	});
+
+	$("#delete").click(function(){
+		localStorage.removeItem(localStorage.key(cardCount));
+		getACard(cardCount);
 	});
 });	
 
