@@ -66,11 +66,11 @@ p{
     -moz-transform-style: preserve-3d;
     -moz-backface-visibility: hidden;
     /* -- transition is the magic sauce for animation -- */
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+    -o-transition: all .8s ease-in-out;
+    -ms-transition: all .8s ease-in-out;
+    -moz-transition: all .8s ease-in-out;
+    -webkit-transition: all .8s ease-in-out;
+    transition: all .8s ease-in-out;
 }
 .panel .flip .front {
     z-index: 10;
@@ -92,11 +92,11 @@ p{
     -moz-transform-style: preserve-3d;
     -moz-backface-visibility: hidden;
     /* -- transition is the magic sauce for animation -- */
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+    -o-transition: all .8s ease-in-out;
+    -ms-transition: all .8s ease-in-out;
+    -moz-transition: all .8s ease-in-out;
+    -webkit-transition: all .8s ease-in-out;
+    transition: all .8s ease-in-out;
 }
 .panel.flip .back {
     z-index: 100;

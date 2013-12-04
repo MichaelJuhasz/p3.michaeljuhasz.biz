@@ -4,7 +4,7 @@ var flipped = false;
 
 $(document).ready(function(){
 
-	localStorage.clear();
+	// localStorage.clear();
 	// Check to see if the user has any cards in localStorage.
 	// If not, add some. 
 	if (localStorage.length == 0){
@@ -175,21 +175,21 @@ function next(){
 // Hitting the next button activates some fancy animation
 // and increments cardCount and then calls getACard with
 // the incremented value, to return the next card in the set
-	if (cardCount < localStorage.length-1){
-		if(!flipped){
-			$("#next_card").html($(".front").text())
-					   .css("z-index", "100");
-		} else {
-			$("#next_card").html($(".back").text())
-					   .css("z-index", "100");
-		}
-		
-		getACard(++cardCount);
-		$("#next_card").animate({left: '300px'}, function(){
-			$("#next_card").css("z-index","-1")
-						   .animate({left: '15'});
-		});
+	if (cardCount >= localStorage.length-1) cardCount = 0;
+	else cardCount++;
+	if(!flipped){
+		$("#next_card").html($(".front").text())
+				   .css("z-index", "100");
+	} else {
+		$("#next_card").html($(".back").text())
+				   .css("z-index", "100");
 	}
+	
+	getACard(cardCount);
+	$("#next_card").animate({left: '300px'}, function(){
+		$("#next_card").css("z-index","-1")
+					   .animate({left: '15'});
+	});
 }
 
 function previous(){
@@ -200,25 +200,29 @@ function previous(){
 // since if I call the function before the card has been 
 // put back on top of the stack, the animation doesn't 
 // make sense.
-	if(cardCount > 0){
-		if(!flipped){
-			$("#next_card").html(localStorage.key(cardCount-1));	
-		} else {
-			$("#next_card").html(localStorage[localStorage.key(cardCount-1)]);
-		}
-		
-		$("#next_card").animate({left: '-300px'},
-			 function(){
-				$("#next_card").css("z-index", "100") 
-					   		   .animate({left: '15px'},
-					function(){
-						getACard(--cardCount);
-						$("#next_card").css("z-index", "-1");
-					   });
-			});
+	if(cardCount <= 0) cardCount = localStorage.length - 1;
+	else cardCount--;
+	if(!flipped){
+		$("#next_card").html(localStorage.key(cardCount));	
+	} else {
+		$("#next_card").html(localStorage[localStorage.key(cardCount)]);
 	}
+	
+	$("#next_card").animate({left: '-300px'},
+		 function(){
+			$("#next_card").css("z-index", "100") 
+				   		   .animate({left: '15px'},
+				function(){
+					getACard(cardCount);
+					$("#next_card").css("z-index", "-1");
+				   });
+		});
 }
 
+function endOfStack(){
+	if (cardCount > localStorage.length - 1) cardCount = 0;
+
+}
 
 
 
