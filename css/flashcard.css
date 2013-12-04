@@ -1,4 +1,8 @@
-
+p{
+	text-align:          center;
+	width:               600px;
+	font-size:           .9em;
+}
 .farsi{
 	direction:           rtl;
 }
